@@ -1,0 +1,49 @@
+/* DashboardComponent's private CSS styles */
+[class*='col-'] {
+    float: left;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+[class*='col-']:last-of-type {
+    padding-right: 0;
+}
+
+
+.dashboard-title {
+    text-align: center
+}
+
+.dashboard-cab {
+    text-align: center
+}
+
+.col-1-4 h4 {
+    position: relative;
+}
+
+.col-1-4 {
+    width: 18%;
+    text-decoration: none;
+}
+
+.module {
+    padding: 20px;
+    text-align: center;
+    color: #eee;
+    max-height: 120px;
+    max-width: 200px;
+    min-width: 60px;
+    background-color: #607d8b;
+    border-radius: 2px;
+}
+
+.module:hover {
+    background-color: #eee;
+    cursor: pointer;
+    color: #607d8b;
+}
+
+.grid {
+    margin: 0;
+}

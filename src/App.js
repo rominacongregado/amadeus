@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import { BrowserRouter, Route, Redirect, Link } from "react-router-dom";
+import Dashboard from "./Dashboard/dashboard";
+import "./styles.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="tour-of-heroes">
+      <h1> Tour of Heroes </h1>
+      <BrowserRouter>
+        <nav>
+          <Link className="nav-element" to="/dashboard">
+            Dashboard
+          </Link>
+          <Link className="nav-element" to="/heroes">
+            Heroes
+          </Link>
+        </nav>
+        <Route exact path="/" render={() => <Redirect to="/dashboard" />} />
+        <Route path="/dashboard" render={(props) => <Dashboard {...props} />} />
+      </BrowserRouter>
     </div>
   );
 }
