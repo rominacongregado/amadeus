@@ -3,6 +3,7 @@ import React from "react";
 import { BrowserRouter, Route, Redirect, Link } from "react-router-dom";
 import Dashboard from "./Dashboard/dashboard";
 import "./styles.css";
+import Game from "./game";
 
 function App() {
   return (
