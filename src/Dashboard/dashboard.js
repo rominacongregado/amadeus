@@ -1,29 +1,23 @@
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { HeroService } from "../Services/hero-Service";
 import "./dashboard.css";
 
-export default function Dashboard() {
-  return (
-    <div className="heroes-links">
-      <Link>
-        <div className="module hero">
-          <h4>Heroe</h4>
-        </div>
-      </Link>
-      <Link>
-        <div className="module hero">
-          <h4>Heroe</h4>
-        </div>
-      </Link>
-      <Link>
-        <div className="module hero">
-          <h4>Heroe</h4>
-        </div>
-      </Link>
-      <Link>
-        <div className="module hero">
-          <h4>Heroe</h4>
-        </div>
-      </Link>
-    </div>
+export default function Dashboard(props) {
+    const [heroes, setHeroes] = useState([]);
+
+    useEffect(() => {
+        let arHeroes = props.HeroService.getHeroes().slice(0, 5);
+        setHeroes([...arHeroes]);
+    }, []);
+
+    return (
+        (heroes.map((hero, indx) =>
+            <Link className="col-1-4” key={hero.id}>
+                <div className="module hero">
+                    <h4>{hero.name}</h4>
+                </div>
+            </Link>) : <div>Error. Cargando héroes…. </div>)
+
   );
 }
