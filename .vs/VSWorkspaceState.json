@@ -2,8 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\Dashboard",
+    "\\src\\HeroDetail",
+    "\\src\\Heroes",
+    "\\src\\HeroSearch",
     "\\src\\Services"
   ],
-  "SelectedNode": "\\src\\Dashboard",
+  "SelectedNode": "\\src\\Dashboard\\dashboard.js",
   "PreviewInSolutionExplorer": false
 }

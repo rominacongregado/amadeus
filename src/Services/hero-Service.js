@@ -28,6 +28,19 @@ export default class HeroService {
         return this.heroes.find((hero) => hero.id == id);
     }
 
+    addHero(hero) {
+        hero.id = this.generateId();
+        this.heroes.push(hero);
+        return hero;
+    }
+
+    generateId() {
+        let ids = this.heroes.map(hero => hero.id);
+        let maxId = Math.max.apply(null, ids);
+        return ++maxId;
+    }
+
+
     updateHero(hero) {
         const target = this.heroes.find(h => h.id === hero.id);
         target.name = hero.name;
@@ -37,6 +50,15 @@ export default class HeroService {
     deleteHero(hero) {
         return this.heroes.splice(this.heroes.findIndex(h => h.id === hero.id), 1);
     }
+
+    searchHeroes(name) {
+        if (name) {
+            return this.heroes.filter(hero => hero.name.toLowerCase().indexOf(name.toLowerCase()) !== -1);
+        } else {
+            return [];
+        }
+    }
+
 
 
 }
