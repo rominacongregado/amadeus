@@ -22,6 +22,6 @@ export default function Dashboard(props) {
             </div>
           </Link>)
       }
-   {/*  <HeroSearch heroService={props.heroservice}> </HeroSearch>*/ }
+     <HeroSearch heroService={props.heroservice}> </HeroSearch>
     </div>)
 }

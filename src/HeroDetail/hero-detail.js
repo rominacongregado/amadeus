@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useHistory, useParams } from 'react';
+//import Heroes from "./Heroes/heroes";
 
 export default function HeroDetail(props) {
     let { id } = useParams();
@@ -24,6 +25,25 @@ export default function HeroDetail(props) {
         history.goBack()
     }
 
+    function addHero(hero) {
+        props.heroservice.addHero(hero);
+        let arHeroes = props.heroservice.getHeroes();
+        setHeroes([...arHeroes]);
+        let msg = "Se ha creado el heroe: " + `${hero.name}`;
+        context.addMessage(oldArray => [...oldArray, msg]);
+    }
+
+    function deleteHero(hero) {
+        props.heroservice.deleteHero(hero);
+        let arHeroes = props.heroservice.getHeroes();
+        setHeroes([...arHeroes]);
+        let msg = "Se ha eliminado el heroe con ID: " + `${hero.id}`;
+        context.addMessage(oldArray => [...oldArray, msg]);
+    }
+
+    function detectChangeName(e) {
+        setHero({ ...hero, name: e.target.value });
+    }
 
     return (
         <div className="hero-detail">
@@ -34,10 +54,10 @@ export default function HeroDetail(props) {
             </div>
             <div>
                 <label>
-                    name: <input placeholder="name" type="text" /> {/*onChange={detectChangeName} />*/}
+                    name: <input placeholder="name" type="text" onChange={detectChangeName} />
                 </label>
             </div>
-            {/*<button className="add-button" onClick={() => addHero(hero)}>*/}
+
             <button className="goback" onClick={goBack}>Go back</button>
             <button className="save" onClick={saveChanges}>Save</button>
         </div>

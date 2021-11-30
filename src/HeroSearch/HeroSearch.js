@@ -25,6 +25,7 @@ export default function HeroSearch(props) {
 
 return (
     <>
+  {/*      <button className="add-button" onClick={() => addHero(hero)}> </button > */}
         <input id="search-box" onKeyUp={handleChange} />
         <HeroesSearched />
     </>
