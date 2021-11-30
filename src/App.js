@@ -20,6 +20,7 @@ function App() {
         </nav>
         <Route exact path="/" render={() => <Redirect to="/dashboard" />} />
         <Route path="/dashboard" render={(props) => <Dashboard {...props} />} />
+        <Route path="/detail/:id" render={props => <HeroDetail heroService={heroService} {...props} />} /> 
       </BrowserRouter>
     </div>
   );
