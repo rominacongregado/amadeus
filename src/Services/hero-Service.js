@@ -34,4 +34,9 @@ export default class HeroService {
         return target;
     }
 
+    deleteHero(hero) {
+        return this.heroes.splice(this.heroes.findIndex(h => h.id === hero.id), 1);
+    }
+
+
 }
