@@ -12,12 +12,13 @@ export default function Dashboard(props) {
     }, []);
 
     return (
-        (heroes.map((hero, indx) =>
-            <Link className="col-1-4” key={hero.id}>
-                <div className="module hero">
-                    <h4>{hero.name}</h4>
-                </div>
-            </Link>) : <div>Error. Cargando héroes…. </div>)
-
+        (heroes.length > 0) ?
+            heroes.map((hero, indx) =>
+                <Link className="col-1-4" key={hero.id}>
+                    <div className="module hero">
+                        <h4>{hero.name}</h4>
+                    </div>
+                </Link>
+            ) : <div>Error. Cargando héroes…. </div>)
   );
 }
